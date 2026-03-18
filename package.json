@@ -1,0 +1,26 @@
+{
+  "name": "pokedexcli-ts",
+  "version": "1.0.0",
+  "description": "Boot.dev pokedex course in TypeScript",
+  "type": "module",
+  "scripts": {
+    "build": "npx tsc",
+    "start": "node dist/main.js",
+    "dev": "npx tsc && node dist/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/harmputman/pokedexcli-ts.git"
+  },
+  "keywords": [],
+  "author": "Harm Putman",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/harmputman/pokedexcli-ts/issues"
+  },
+  "homepage": "https://github.com/harmputman/pokedexcli-ts#readme",
+  "devDependencies": {
+    "@types/node": "^25.5.0",
+    "typescript": "^5.9.3"
+  }
+}
