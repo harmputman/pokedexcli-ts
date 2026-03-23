@@ -1,13 +1,5 @@
 import { State } from "./state.js";
 
-export function cleanInput(input: string): string[] {
-  return input
-    .toLowerCase()
-    .trim()
-    .split(" ")
-    .filter((word) => word !== "");
-}
-
 export function startREPL(state: State): void {
     state.readline.prompt();
 
@@ -20,6 +12,7 @@ export function startREPL(state: State): void {
         }
 
         const commandName = words[0];
+        const args = words.slice(1);
 
         const cmd = state.commands[commandName];
 
@@ -32,11 +25,19 @@ export function startREPL(state: State): void {
         }
 
         try {
-            cmd.callback(state);
+            await cmd.callback(state, ...args);
         } catch (e) {
             console.log(e);
         }
 
         state.readline.prompt();
     });
+}
+
+export function cleanInput(input: string): string[] {
+  return input
+    .toLowerCase()
+    .trim()
+    .split(" ")
+    .filter((word) => word !== "");
 }
